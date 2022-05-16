@@ -1,0 +1,16 @@
+{
+  "name": "pi_spider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "forever start -a --uid \"pi_spider\" -l `pwd`/logs/forever.log -o `pwd`/logs/out.log -e `pwd`/logs/error.log index.js",
+    "stop": "forever stop pi_spider"
+  },
+  "author": "hy",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "node-schedule": "^2.0.0"
+  }
+}
