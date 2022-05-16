@@ -1,0 +1,11 @@
+# user
+CREATE USER 'huangye'@'%' IDENTIFIED BY '123456';
+GRANT ALL ON *.* TO 'huangye'@'%';
+
+# 权限
+# /etc/my.cnf.d 目录下的 mariadb-server.cnf 文件中。 
+# /etc/mysql/mariadb.conf.d/50-server.cnf bind-address 注释掉
+# service mysql restart
+
+# db
+CREATE DATABASE IF NOT EXISTS pi_spider_db;
