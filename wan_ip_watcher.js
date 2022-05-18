@@ -8,12 +8,12 @@ function compare_cache_wan_ip(ip) {
     file_name = './data/wan_ip.json'
     exist = fs.existsSync(file_name)
     if (exist) {
-        var data = fs.readFileSync(file_name)
+        var data = JSON.parse(fs.readFileSync(file_name))
         if (data.ip == ip) {
             return true
         } else {
             console.log(`ip change, from ${data.ip} to ${ip}`);
-            data.ip = ip
+            data = {'ip': ip}
             fs.writeFileSync(file_name, JSON.stringify(data))
             return false
         }
@@ -31,7 +31,7 @@ module.exports = {
                 wan_ip = response.data.origin;
                 console.log(`wan ip: ${wan_ip}`)
                 if (!compare_cache_wan_ip(wan_ip)) {
-                    message.msg(`ip change to ${wan_ip}`)
+                    console.log(`msg`)
                 }
             })
             .catch(error => {
