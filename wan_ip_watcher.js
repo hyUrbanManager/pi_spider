@@ -29,9 +29,8 @@ module.exports = {
         axios.get(wan_ip_url)
             .then(response => {
                 wan_ip = response.data.origin;
-                console.log(`wan ip: ${wan_ip}`)
                 if (!compare_cache_wan_ip(wan_ip)) {
-                    console.log(`msg`)
+                    message.msg(`ip change to ${wan_ip}`)
                 }
             })
             .catch(error => {
