@@ -5,3 +5,6 @@ const watcher = require('./wan_ip_watcher.js')
 schedule.scheduleJob('0 * * * *', () => {
     watcher.watch()
 })
+
+// 开机的时候马上检查一次ip
+watcher.watch()

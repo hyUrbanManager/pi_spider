@@ -1,5 +1,6 @@
 const axios = require('axios');
 
+// 发送微信喵酱通知消息
 const apikey = 'SCT148567TRPdvRERqkYligdCzvgIOJ5at'
 const url = `https://sctapi.ftqq.com/${apikey}.send`
 

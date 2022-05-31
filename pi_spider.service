@@ -1,0 +1,10 @@
+[Unit]
+Description=pi spider daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/forever start -a --uid \"pi_spider\" -l /home/hy/code/pi_spider/logs/forever.log -o /home/hy/code/pi_spider/logs/out.log -e /home/hy/code/pi_spider/logs/error.log index.js
+ExecStop=/usr/local/bin/forever stop pi_spider
+
+[Install]
+WantedBy=multi-user.target
