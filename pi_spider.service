@@ -3,8 +3,14 @@ Description=pi spider daemon
 
 [Service]
 Type=simple
-ExecStart=/usr/local/bin/forever start -a --uid \"pi_spider\" -l /home/hy/code/pi_spider/logs/forever.log -o /home/hy/code/pi_spider/logs/out.log -e /home/hy/code/pi_spider/logs/error.log index.js
-ExecStop=/usr/local/bin/forever stop pi_spider
+WorkingDirectory=/home/hy/code/pi_spider
+ExecStartPre=/bin/sleep 20
+ExecStart=node index.js
+KillMode=process
+Restart=on-failure
+RestartSec=30s
+User=hy
+Group=hy
 
 [Install]
 WantedBy=multi-user.target
