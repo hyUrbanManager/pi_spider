@@ -36,14 +36,14 @@ function commit_git_wan_ip_if_need(ip) {
             data = {'ip': ip}
             fs.writeFileSync(file_name, JSON.stringify(data))
             shell.cd('./pi_wan_ip')
-            shell.exec('git pull && git commit -am "[config]update wan ip" && git push origin main')
+            shell.exec('git commit -am "[config]update wan ip" && git push origin main')
             shell.cd('..')
         }
     } else {
         var data = {'ip': ip}
         fs.writeFileSync(file_name, JSON.stringify(data))
         shell.cd('./pi_wan_ip')
-        shell.exec('git pull && git commit -am "[config]update wan ip" && git push origin main')
+        shell.exec('git commit -am "[config]update wan ip" && git push origin main')
         shell.cd('..')
     }
 }
