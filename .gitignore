@@ -14,3 +14,4 @@ logs
 /.idea
 
 data/wan_ip.json
+pi_wan_ip
